@@ -8,6 +8,6 @@ Please, keep in mind, the project is in development stage and some things are no
 
 It's a simple tool to automate packages and files upddate on different hosts, connected to one network. You need to configure it, start the daemons, and update some of the watched objects. See the [github page](github.com/mrexox/evesync) README file for more information and contact me if you are interested: 
 
-[mrexox@yahoo.com](mrexox@yahoo.com) {style=text-align:center}
+[mrexox@yahoo.com](mrexox@yahoo.com)
 
 
