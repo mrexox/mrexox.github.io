@@ -11,7 +11,14 @@ It's a simple tool to automate packages and files upddate on different hosts, co
 [mrexox@yahoo.com](mrexox@yahoo.com)
 
 
-### Starting evesync
+### Installing evesync
+
+Evesync is available on [rubygems.org](https://rubygems.org/gems/evesync). Simply run:
+```
+# gem install evesync
+```
+
+### Running evesync
 
 To start evesync you need to be root or make your user an owner of following directories:
 - /var/run/evesync
@@ -29,3 +36,7 @@ To stop daemons, go:
 ```
 # evesync --kill
 ```
+
+### Contributing
+
+See [README.md](https://github.com/mrexox/evesync/blob/master/README.md) for running tests and feel free to create issues and write e-mails to mrexox@yahoo.com
