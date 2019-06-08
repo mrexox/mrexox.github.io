@@ -46,6 +46,39 @@ To stop daemons, go:
 # evesync --kill
 ```
 
+### Adding Systemd service
+
+To make evesync a systemd service, you need to install it globally with a command
+```
+# gem install --no-user-install evesync
+```
+
+Then create a file **/usr/lib/systemd/system/evesync.service** with following content [(or use this file from Github)](https://github.com/mrexox/evesync/blob/master/systemd/evesync.service):
+```
+[Unit]
+Description=Evesync daemons
+Documentation=Starting all evesync daemons. Logs can be found in /var/log/evesync.
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/evesync --run
+ExecStop=/usr/bin/evesync --kill
+PIDFile=/var/run/evesync/evemond.pid
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then just enable and start the service:
+```
+# systemctl daemon-reload
+# systemctl enable evesync.service
+# systemctl start evesync.service
+```
+
+Don't forget to install gem with `--no-user-install` flag, to install it globally!
+
 ### Contributing
 
 See [README.md](https://github.com/mrexox/evesync/blob/master/README.md) for running tests and feel free to create issues and write e-mails to mrexox@yahoo.com
