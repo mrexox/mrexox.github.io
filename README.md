@@ -12,8 +12,17 @@ It's a simple tool to automate packages and files update on different hosts, con
 
 
 ### Installing evesync
+Firs of all you need to install dependencies. For Rhel distro run:
+```
+# yum install rubygems ruby-devel make gcc
+```
 
-Evesync is available on [rubygems.org](https://rubygems.org/gems/evesync). Simply run:
+For Debian-based distro run:
+```
+# apt-get install rubygems ruby-dev make gcc
+```
+
+Evesync is available on [rubygems.org](https://rubygems.org/gems/evesync), so it can be installed with a command:
 ```
 # gem install evesync
 ```
