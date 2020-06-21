@@ -30,7 +30,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/">Hi, dude 👋</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -51,7 +51,7 @@
 
 <h1 id="first-code">First: code</h1>
 
-<p>You can browse the sources also:</p>
+<p>You can browse the sources also <a href="https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module">here</a></p>
 
 <p><strong>hello-world.c</strong></p>
 
@@ -97,6 +97,102 @@
 </code></pre></div></div>
 
 <h1 id="explanation">Explanation</h1>
+
+<h2 id="environment">Environment</h2>
+
+<p>I use Gentoo Linux on Intel Celeron machine:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uname -a
+Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
+</code></pre></div></div>
+
+<p>Of course you need kernel sources! On Gentoo they are probably at <em>/usr/src/linux</em>, on other systems you should install them via package manager or via <a href="https://github.com/torvalds/linux">git</a>. Google will help you!</p>
+
+<h2 id="writing-c-file">Writing C file</h2>
+
+<p>Every Linux kernel module must have following things:</p>
+
+<ul>
+  <li>License</li>
+  <li>Intitialization function</li>
+  <li>Exit function</li>
+</ul>
+
+<h3 id="license">License</h3>
+
+<p><code class="language-plaintext highlighter-rouge">MODULE_LICENSE</code> is used to declare the license. These values can be used for my kernel version:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"GPL"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"GPL v2"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"GPL and additional rights"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"Dual BSD/GPL"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"Dual MIT/GPL"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"Dual MPL/GPL"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"Proprietary"</code></li>
+</ul>
+
+<p>For more information see <a href="https://github.com/torvalds/linux/blob/master/include/linux/module.h">include/linux/module.h</a> file.</p>
+
+<h3 id="initialization">Initialization</h3>
+
+<p><code class="language-plaintext highlighter-rouge">module_init</code> is a macro that declares initialization function (for our case it is <code class="language-plaintext highlighter-rouge">hello_init</code>). This function is called when the module is inserted to a kernelspace. e.g. on running <code class="language-plaintext highlighter-rouge">insmod</code> command.</p>
+
+<h3 id="exiting">Exiting</h3>
+
+<p><code class="language-plaintext highlighter-rouge">module_exit</code> is a macro that declares exiting function (<code class="language-plaintext highlighter-rouge">hello_exit</code>). This function is called when the module is removed from the kernelspace. e.g. on running <code class="language-plaintext highlighter-rouge">rmmod</code> command.</p>
+
+<h2 id="writing-makefile">Writing Makefile</h2>
+
+<p>For this simple purpose (as we do not have any dependencies) we just need to run <code class="language-plaintext highlighter-rouge">make module</code> in kernel sources with ENV var <code class="language-plaintext highlighter-rouge">M</code> set on current working directory. The only thing that I notices while trying to port <a href="https://github.com/martinezjavier/ldd3">ldd3 examples</a> was: you should add <code class="language-plaintext highlighter-rouge">obj-m += ...</code> statement to <strong>Kbuild</strong> file, not to Makefile :warning: Without this I got an error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+make -C /lib/modules/4.19.97-gentoo/build M=/home/ian/src/linux-modules/hello-world modules
+make[1]: Entering directory '/usr/src/linux-4.19.97-gentoo'
+  CC [M]  /home/ian/src/linux-modules/hello-world/hello-world.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/ian/src/linux-modules/hello-world/hello-world.o
+see include/linux/module.h for more information
+  CC      /home/ian/src/linux-modules/hello-world/hello-world.mod.o
+  LD [M]  /home/ian/src/linux-modules/hello-world/hello-world.ko
+make[1]: Leaving directory '/usr/src/linux-4.19.97-gentoo'
+</code></pre></div></div>
+
+<p>See this warning? Module does not work properly when compiled with this warning. Moving <code class="language-plaintext highlighter-rouge">obj-m += ...</code> to <strong>Kbuild</strong> helped to solve that.</p>
+
+<h2 id="running-module">Running module</h2>
+
+<p>To run the module and make sure it runs, you need to do the following:</p>
+
+<ol>
+  <li>Insert the module (as root)</li>
+  <li>Watch the message on <code class="language-plaintext highlighter-rouge">dmesg</code> or tail <strong>/var/log/kern.log</strong> file</li>
+  <li>List modes, notice it runs</li>
+  <li>Remove the module (as root)</li>
+  <li>Watch the message again!</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># insmod hello-world.ko</span>
+<span class="nv">$ </span>lsmod | <span class="nb">grep </span>hello_world <span class="c"># notice! dashes changed to undescrores here</span>
+hello_world            16384  0
+<span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-1</span> /var/log/kern.log
+Jun 21 14:07:53 gentoo kernel: <span class="o">[</span>10063.468659] Hello, world!
+<span class="c"># rmmod hello_world</span>
+<span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-1</span> /var/log/kern.log
+Jun 21 14:10:14 gentoo kernel: <span class="o">[</span>10202.723209] Goodbye, man!
+</code></pre></div></div>
+
+<p>Here we go! Hello world module is done. Here is the list of useful links:</p>
+
+<ul>
+  <li><a href="https://github.com/martinezjavier/ldd3">GitHub: LDD3 examples</a> (of course you know what ldd mean!)</li>
+  <li><a href="https://github.com/torvalds/linux">GitHub: Linux repository</a></li>
+  <li><a href="https://www.youtube.com/watch?v=juGNPLdjLH4">YouTube: How Linux Kernel Drivers Work</a></li>
+  <li><a href="https://tldp.org/LDP/lkmpg/2.6/html/x121.html">Hello World tutorial 1</a></li>
+  <li><a href="https://blog.sourcerer.io/writing-a-simple-linux-kernel-module-d9dc3762c234">Hello World tutorial 2</a></li>
+  <li><a href="https://www.geeksforgeeks.org/linux-kernel-module-programming-hello-world-program/">Hello World tutorial 3</a></li>
+</ul>
 
   </div><a class="u-url" href="/driver/2020/06/21/Linux-basic-kernel-module.html" hidden></a>
 </article>

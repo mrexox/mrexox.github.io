@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T13:37:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Built with Jekyll and love 🧡</subtitle><entry><title type="html">👶 Linux basic kernel module</title><link href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" rel="alternate" type="text/html" title="👶 Linux basic kernel module" /><published>2020-06-21T12:57:45+03:00</published><updated>2020-06-21T12:57:45+03:00</updated><id>http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module</id><content type="html" xml:base="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html">&lt;h1 id=&quot;hi-developer&quot;&gt;Hi, developer&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T14:11:22+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Built with Jekyll and love 🧡</subtitle><entry><title type="html">👶 Linux basic kernel module</title><link href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" rel="alternate" type="text/html" title="👶 Linux basic kernel module" /><published>2020-06-21T12:57:45+03:00</published><updated>2020-06-21T12:57:45+03:00</updated><id>http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module</id><content type="html" xml:base="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html">&lt;h1 id=&quot;hi-developer&quot;&gt;Hi, developer&lt;/h1&gt;
 
 &lt;p&gt;This it an article about how to write a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_world&lt;/code&gt; linux module for 4.19 kernel.&lt;/p&gt;
 
 &lt;h1 id=&quot;first-code&quot;&gt;First: code&lt;/h1&gt;
 
-&lt;p&gt;You can browse the sources also:&lt;/p&gt;
+&lt;p&gt;You can browse the sources also &lt;a href=&quot;https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;hello-world.c&lt;/strong&gt;&lt;/p&gt;
 
@@ -49,7 +49,103 @@
 &lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;obj-m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; hello-world.o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;</content><author><name></name></author><summary type="html">Hi, developer</summary></entry><entry><title type="html">Evesync: package synchronization tool</title><link href="http://localhost:4000/clusterization/2019/06/20/Evesync.html" rel="alternate" type="text/html" title="Evesync: package synchronization tool" /><published>2019-06-20T12:32:43+03:00</published><updated>2019-06-20T12:32:43+03:00</updated><id>http://localhost:4000/clusterization/2019/06/20/Evesync</id><content type="html" xml:base="http://localhost:4000/clusterization/2019/06/20/Evesync.html">&lt;h1 id=&quot;hi-admin&quot;&gt;Hi, Admin!&lt;/h1&gt;
+&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;
+
+&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
+
+&lt;p&gt;I use Gentoo Linux on Intel Celeron machine:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uname -a
+Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course you need kernel sources! On Gentoo they are probably at &lt;em&gt;/usr/src/linux&lt;/em&gt;, on other systems you should install them via package manager or via &lt;a href=&quot;https://github.com/torvalds/linux&quot;&gt;git&lt;/a&gt;. Google will help you!&lt;/p&gt;
+
+&lt;h2 id=&quot;writing-c-file&quot;&gt;Writing C file&lt;/h2&gt;
+
+&lt;p&gt;Every Linux kernel module must have following things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;License&lt;/li&gt;
+  &lt;li&gt;Intitialization function&lt;/li&gt;
+  &lt;li&gt;Exit function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;license&quot;&gt;License&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MODULE_LICENSE&lt;/code&gt; is used to declare the license. These values can be used for my kernel version:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;GPL&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;GPL v2&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;GPL and additional rights&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Dual BSD/GPL&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Dual MIT/GPL&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Dual MPL/GPL&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Proprietary&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more information see &lt;a href=&quot;https://github.com/torvalds/linux/blob/master/include/linux/module.h&quot;&gt;include/linux/module.h&lt;/a&gt; file.&lt;/p&gt;
+
+&lt;h3 id=&quot;initialization&quot;&gt;Initialization&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module_init&lt;/code&gt; is a macro that declares initialization function (for our case it is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_init&lt;/code&gt;). This function is called when the module is inserted to a kernelspace. e.g. on running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;insmod&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;h3 id=&quot;exiting&quot;&gt;Exiting&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module_exit&lt;/code&gt; is a macro that declares exiting function (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_exit&lt;/code&gt;). This function is called when the module is removed from the kernelspace. e.g. on running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rmmod&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;h2 id=&quot;writing-makefile&quot;&gt;Writing Makefile&lt;/h2&gt;
+
+&lt;p&gt;For this simple purpose (as we do not have any dependencies) we just need to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make module&lt;/code&gt; in kernel sources with ENV var &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M&lt;/code&gt; set on current working directory. The only thing that I notices while trying to port &lt;a href=&quot;https://github.com/martinezjavier/ldd3&quot;&gt;ldd3 examples&lt;/a&gt; was: you should add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;obj-m += ...&lt;/code&gt; statement to &lt;strong&gt;Kbuild&lt;/strong&gt; file, not to Makefile :warning: Without this I got an error:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ make
+make -C /lib/modules/4.19.97-gentoo/build M=/home/ian/src/linux-modules/hello-world modules
+make[1]: Entering directory '/usr/src/linux-4.19.97-gentoo'
+  CC [M]  /home/ian/src/linux-modules/hello-world/hello-world.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/ian/src/linux-modules/hello-world/hello-world.o
+see include/linux/module.h for more information
+  CC      /home/ian/src/linux-modules/hello-world/hello-world.mod.o
+  LD [M]  /home/ian/src/linux-modules/hello-world/hello-world.ko
+make[1]: Leaving directory '/usr/src/linux-4.19.97-gentoo'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;See this warning? Module does not work properly when compiled with this warning. Moving &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;obj-m += ...&lt;/code&gt; to &lt;strong&gt;Kbuild&lt;/strong&gt; helped to solve that.&lt;/p&gt;
+
+&lt;h2 id=&quot;running-module&quot;&gt;Running module&lt;/h2&gt;
+
+&lt;p&gt;To run the module and make sure it runs, you need to do the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Insert the module (as root)&lt;/li&gt;
+  &lt;li&gt;Watch the message on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dmesg&lt;/code&gt; or tail &lt;strong&gt;/var/log/kern.log&lt;/strong&gt; file&lt;/li&gt;
+  &lt;li&gt;List modes, notice it runs&lt;/li&gt;
+  &lt;li&gt;Remove the module (as root)&lt;/li&gt;
+  &lt;li&gt;Watch the message again!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# insmod hello-world.ko&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;lsmod | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;hello_world &lt;span class=&quot;c&quot;&gt;# notice! dashes changed to undescrores here&lt;/span&gt;
+hello_world            16384  0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt; /var/log/kern.log
+Jun 21 14:07:53 gentoo kernel: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;10063.468659] Hello, world!
+&lt;span class=&quot;c&quot;&gt;# rmmod hello_world&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt; /var/log/kern.log
+Jun 21 14:10:14 gentoo kernel: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;10202.723209] Goodbye, man!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we go! Hello world module is done. Here is the list of useful links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/martinezjavier/ldd3&quot;&gt;GitHub: LDD3 examples&lt;/a&gt; (of course you know what ldd mean!)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/torvalds/linux&quot;&gt;GitHub: Linux repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=juGNPLdjLH4&quot;&gt;YouTube: How Linux Kernel Drivers Work&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tldp.org/LDP/lkmpg/2.6/html/x121.html&quot;&gt;Hello World tutorial 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.sourcerer.io/writing-a-simple-linux-kernel-module-d9dc3762c234&quot;&gt;Hello World tutorial 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/linux-kernel-module-programming-hello-world-program/&quot;&gt;Hello World tutorial 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Hi, developer</summary></entry><entry><title type="html">Evesync: package synchronization tool</title><link href="http://localhost:4000/clusterization/2019/06/20/Evesync.html" rel="alternate" type="text/html" title="Evesync: package synchronization tool" /><published>2019-06-20T12:32:43+03:00</published><updated>2019-06-20T12:32:43+03:00</updated><id>http://localhost:4000/clusterization/2019/06/20/Evesync</id><content type="html" xml:base="http://localhost:4000/clusterization/2019/06/20/Evesync.html">&lt;h1 id=&quot;hi-admin&quot;&gt;Hi, Admin!&lt;/h1&gt;
 
 &lt;p&gt;There are a bunch of problems when deploying some code on multiple servers in one local network. It usually needs to be automized. While switching berween &lt;em&gt;cron&lt;/em&gt; and &lt;em&gt;ansible&lt;/em&gt; there’s a solution that is aimed to do all the job. It’s name is &lt;em&gt;evesync&lt;/em&gt;. It is now a ruby gem that allows to synchronize files and packages (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rpm&lt;/code&gt;) between multiple nodes.&lt;/p&gt;
 
