@@ -70,7 +70,7 @@ uname -a
 Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
 ```
 
-Of course you need kernel sources! On Gentoo they are probably at */usr/src/linux*, on other systems you should install them via package manager or via [git](https://github.com/torvalds/linux). Google will help you!
+Of course you need kernel sources! On Gentoo they are at */usr/src/linux*, on other systems you should install them via package manager or via [git](https://github.com/torvalds/linux). Google will help you!
 
 ## Writing C file
 
@@ -132,7 +132,7 @@ To run the module and make sure it runs, you need to do the following:
 1. Remove the module (as root)
 1. Watch the message again!
 
-```bash
+```
 # insmod hello-world.ko
 $ lsmod | grep hello_world # notice! dashes changed to undescrores here
 hello_world            16384  0
@@ -143,7 +143,9 @@ $ tail -1 /var/log/kern.log
 Jun 21 14:10:14 gentoo kernel: [10202.723209] Goodbye, man!
 ```
 
-Here we go! Hello world module is done. Here is the list of useful links:
+Here we go! Hello world module is done.
+
+## Here is the list of useful links:
 
 - [GitHub: LDD3 examples](https://github.com/martinezjavier/ldd3) (of course you know what ldd mean!)
 - [GitHub: Linux repository](https://github.com/torvalds/linux)

@@ -106,7 +106,7 @@
 Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
 </code></pre></div></div>
 
-<p>Of course you need kernel sources! On Gentoo they are probably at <em>/usr/src/linux</em>, on other systems you should install them via package manager or via <a href="https://github.com/torvalds/linux">git</a>. Google will help you!</p>
+<p>Of course you need kernel sources! On Gentoo they are at <em>/usr/src/linux</em>, on other systems you should install them via package manager or via <a href="https://github.com/torvalds/linux">git</a>. Google will help you!</p>
 
 <h2 id="writing-c-file">Writing C file</h2>
 
@@ -173,17 +173,19 @@ make[1]: Leaving directory '/usr/src/linux-4.19.97-gentoo'
   <li>Watch the message again!</li>
 </ol>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># insmod hello-world.ko</span>
-<span class="nv">$ </span>lsmod | <span class="nb">grep </span>hello_world <span class="c"># notice! dashes changed to undescrores here</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># insmod hello-world.ko
+$ lsmod | grep hello_world # notice! dashes changed to undescrores here
 hello_world            16384  0
-<span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-1</span> /var/log/kern.log
-Jun 21 14:07:53 gentoo kernel: <span class="o">[</span>10063.468659] Hello, world!
-<span class="c"># rmmod hello_world</span>
-<span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-1</span> /var/log/kern.log
-Jun 21 14:10:14 gentoo kernel: <span class="o">[</span>10202.723209] Goodbye, man!
+$ tail -1 /var/log/kern.log
+Jun 21 14:07:53 gentoo kernel: [10063.468659] Hello, world!
+# rmmod hello_world
+$ tail -1 /var/log/kern.log
+Jun 21 14:10:14 gentoo kernel: [10202.723209] Goodbye, man!
 </code></pre></div></div>
 
-<p>Here we go! Hello world module is done. Here is the list of useful links:</p>
+<p>Here we go! Hello world module is done.</p>
+
+<h2 id="here-is-the-list-of-useful-links">Here is the list of useful links:</h2>
 
 <ul>
   <li><a href="https://github.com/martinezjavier/ldd3">GitHub: LDD3 examples</a> (of course you know what ldd mean!)</li>
