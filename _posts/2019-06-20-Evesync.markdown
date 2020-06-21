@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Evesync: package synchronization tool"
+date: 2019-06-20 12:32:43 +0300
+categories: linux clusterization
+---
 # Hi, Admin!
 
 There are a bunch of problems when deploying some code on multiple servers in one local network. It usually needs to be automized. While switching berween _cron_ and _ansible_ there's a solution that is aimed to do all the job. It's name is *evesync*. It is now a ruby gem that allows to synchronize files and packages (`deb` and `rpm`) between multiple nodes.
@@ -82,3 +88,6 @@ Don't forget to install gem with `--no-user-install` flag, to install it globall
 ### Contributing
 
 See [README.md](https://github.com/mrexox/evesync/blob/master/README.md) for running tests and feel free to create issues and write e-mails to mrexox@yahoo.com
+
+### UPD: from year 2020
+This tool is currently not supported, but if you are interested, contact me with your question.

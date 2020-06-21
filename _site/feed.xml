@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T12:53:58+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Personal blog of Valentine Kiselev. Feel free to mail me.</subtitle><entry><title type="html">Evesync: package synchronization tool</title><link href="http://localhost:4000/linux/clusterization/2019/06/20/Evesync.html" rel="alternate" type="text/html" title="Evesync: package synchronization tool" /><published>2019-06-20T12:32:43+03:00</published><updated>2019-06-20T12:32:43+03:00</updated><id>http://localhost:4000/linux/clusterization/2019/06/20/Evesync</id><content type="html" xml:base="http://localhost:4000/linux/clusterization/2019/06/20/Evesync.html">&lt;h1 id=&quot;hi-admin&quot;&gt;Hi, Admin!&lt;/h1&gt;
+
+&lt;p&gt;There are a bunch of problems when deploying some code on multiple servers in one local network. It usually needs to be automized. While switching berween &lt;em&gt;cron&lt;/em&gt; and &lt;em&gt;ansible&lt;/em&gt; there’s a solution that is aimed to do all the job. It’s name is &lt;em&gt;evesync&lt;/em&gt;. It is now a ruby gem that allows to synchronize files and packages (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rpm&lt;/code&gt;) between multiple nodes.&lt;/p&gt;
+
+&lt;p&gt;Please, keep in mind, the project is in development stage and some things are not implemented now.&lt;/p&gt;
+
+&lt;h2 id=&quot;evesync&quot;&gt;EVESYNC&lt;/h2&gt;
+
+&lt;p&gt;It’s a simple tool to automate packages and files update on different hosts, connected to one network. You need to configure it, start the daemons, and update some of the watched objects. See the &lt;a href=&quot;https://github.com/mrexox/evesync&quot;&gt;github page&lt;/a&gt; README file for more information and contact me if you are interested:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;mrexox@yahoo.com&quot;&gt;mrexox@yahoo.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;installing-evesync&quot;&gt;Installing evesync&lt;/h3&gt;
+&lt;p&gt;Firs of all you need to install dependencies. For Rhel distro run:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# yum install rubygems ruby-devel make gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For Debian-based distro run:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# apt-get install rubygems ruby-dev make gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Evesync is available on &lt;a href=&quot;https://rubygems.org/gems/evesync&quot;&gt;rubygems.org&lt;/a&gt;, so it can be installed with a command:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# gem install evesync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;running-evesync&quot;&gt;Running evesync&lt;/h3&gt;
+
+&lt;p&gt;To start evesync you need to be root or make your user an owner of following directories:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;/var/run/evesync&lt;/li&gt;
+  &lt;li&gt;/var/log/evesync&lt;/li&gt;
+  &lt;li&gt;/var/lib/evesync&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Non-root users will not be able to install packages. Thus running as root is recommended.&lt;/p&gt;
+
+&lt;p&gt;To start all daemons, go:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# evesync --run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To stop daemons, go:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# evesync --kill
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;adding-systemd-service&quot;&gt;Adding Systemd service&lt;/h3&gt;
+
+&lt;p&gt;To make evesync a systemd service, you need to install it globally with a command&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# gem install --no-user-install evesync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then create a file &lt;strong&gt;/usr/lib/systemd/system/evesync.service&lt;/strong&gt; with following content &lt;a href=&quot;https://github.com/mrexox/evesync/blob/master/systemd/evesync.service&quot;&gt;(or use this file from Github)&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Evesync daemons
+Documentation=Starting all evesync daemons. Logs can be found in /var/log/evesync.
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/evesync --run
+ExecStop=/usr/bin/evesync --kill
+PIDFile=/var/run/evesync/evemond.pid
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then just enable and start the service:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# systemctl daemon-reload
+# systemctl enable evesync.service
+# systemctl start evesync.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Don’t forget to install gem with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--no-user-install&lt;/code&gt; flag, to install it globally!&lt;/p&gt;
+
+&lt;h3 id=&quot;contributing&quot;&gt;Contributing&lt;/h3&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/mrexox/evesync/blob/master/README.md&quot;&gt;README.md&lt;/a&gt; for running tests and feel free to create issues and write e-mails to mrexox@yahoo.com&lt;/p&gt;
+
+&lt;h3 id=&quot;upd-from-year-2020&quot;&gt;UPD: from year 2020&lt;/h3&gt;
+&lt;p&gt;This tool is currently not supported, but if you are interested, contact me with your question.&lt;/p&gt;</content><author><name></name></author><summary type="html">Hi, Admin!</summary></entry></feed>
