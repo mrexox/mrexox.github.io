@@ -11,7 +11,7 @@ This it an article about how to write a basic `hello_world` linux module for 4.1
 
 # First: code
 
-You can browse the sources also:
+You can browse the sources also: https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module
 
 **hello-world.c**
 

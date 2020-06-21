@@ -3,9 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: "Hi, dude 👋"
 ---
-
-# Hi, dude 👋
 
 Nice to see you on my personal blog page. This blog is supposed to be about technical shit. There are probably not so many blogposts but they are increasing in number from time to time. There is a list of posts grouped by cetegory and also a chronological list of posts downside.
 
