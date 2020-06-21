@@ -21,8 +21,7 @@
 title: mrexox personal blog
 email: mrexox@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Personal blog of Valentine Kiselev.
-  Feel free to mail me.
+  Built with Jekyll and love 🧡
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb

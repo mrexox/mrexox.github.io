@@ -2,7 +2,7 @@
 layout: post
 title: "Evesync: package synchronization tool"
 date: 2019-06-20 12:32:43 +0300
-categories: linux clusterization
+categories: clusterization
 ---
 # Hi, Admin!
 

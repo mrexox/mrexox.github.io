@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T12:53:58+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Personal blog of Valentine Kiselev. Feel free to mail me.</subtitle><entry><title type="html">Evesync: package synchronization tool</title><link href="http://localhost:4000/linux/clusterization/2019/06/20/Evesync.html" rel="alternate" type="text/html" title="Evesync: package synchronization tool" /><published>2019-06-20T12:32:43+03:00</published><updated>2019-06-20T12:32:43+03:00</updated><id>http://localhost:4000/linux/clusterization/2019/06/20/Evesync</id><content type="html" xml:base="http://localhost:4000/linux/clusterization/2019/06/20/Evesync.html">&lt;h1 id=&quot;hi-admin&quot;&gt;Hi, Admin!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T13:37:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Built with Jekyll and love 🧡</subtitle><entry><title type="html">👶 Linux basic kernel module</title><link href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" rel="alternate" type="text/html" title="👶 Linux basic kernel module" /><published>2020-06-21T12:57:45+03:00</published><updated>2020-06-21T12:57:45+03:00</updated><id>http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module</id><content type="html" xml:base="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html">&lt;h1 id=&quot;hi-developer&quot;&gt;Hi, developer&lt;/h1&gt;
+
+&lt;p&gt;This it an article about how to write a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_world&lt;/code&gt; linux module for 4.19 kernel.&lt;/p&gt;
+
+&lt;h1 id=&quot;first-code&quot;&gt;First: code&lt;/h1&gt;
+
+&lt;p&gt;You can browse the sources also:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;hello-world.c&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;linux/init.h&amp;gt;
+#include &amp;lt;linux/module.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;MODULE_LICENSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Dual BSD/GPL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* MODULE_LICENSE is a required macro */&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/* This will print to tty0 and /var/log/kern.log */&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;printk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KERN_ALERT&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello_exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;printk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KERN_ALERT&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Goodbye, man!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*
+ * Every module has its initialize and exit function.
+ * This is how they are registered.
+ */&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;module_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;module_exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello_exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Makefile&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;KERNELDIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?=&lt;/span&gt; /lib/modules/&lt;span class=&quot;nf&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;shell&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;)&lt;/span&gt;/build
+
+&lt;span class=&quot;nl&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(MAKE)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(KERNELDIR)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(CURDIR)&lt;/span&gt; modules
+
+&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.o &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;~ core .depend .&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.cmd &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ko &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.mod.c .tmp_versions &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.symvers modules.order
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Kbuild&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;obj-m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; hello-world.o
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;</content><author><name></name></author><summary type="html">Hi, developer</summary></entry><entry><title type="html">Evesync: package synchronization tool</title><link href="http://localhost:4000/clusterization/2019/06/20/Evesync.html" rel="alternate" type="text/html" title="Evesync: package synchronization tool" /><published>2019-06-20T12:32:43+03:00</published><updated>2019-06-20T12:32:43+03:00</updated><id>http://localhost:4000/clusterization/2019/06/20/Evesync</id><content type="html" xml:base="http://localhost:4000/clusterization/2019/06/20/Evesync.html">&lt;h1 id=&quot;hi-admin&quot;&gt;Hi, Admin!&lt;/h1&gt;
 
 &lt;p&gt;There are a bunch of problems when deploying some code on multiple servers in one local network. It usually needs to be automized. While switching berween &lt;em&gt;cron&lt;/em&gt; and &lt;em&gt;ansible&lt;/em&gt; there’s a solution that is aimed to do all the job. It’s name is &lt;em&gt;evesync&lt;/em&gt;. It is now a ruby gem that allows to synchronize files and packages (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rpm&lt;/code&gt;) between multiple nodes.&lt;/p&gt;
 
