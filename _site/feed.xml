@@ -1,8 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T14:25:12+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Built with Jekyll and love 🧡</subtitle><entry><title type="html">👶 Linux basic kernel module</title><link href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" rel="alternate" type="text/html" title="👶 Linux basic kernel module" /><published>2020-06-21T12:57:45+03:00</published><updated>2020-06-21T12:57:45+03:00</updated><id>http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module</id><content type="html" xml:base="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html">&lt;h1 id=&quot;hi-developer&quot;&gt;Hi, developer&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-22T09:50:39+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">mrexox personal blog</title><subtitle>Built with Jekyll and love 🧡</subtitle><entry><title type="html">👶 Linux basic kernel module</title><link href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" rel="alternate" type="text/html" title="👶 Linux basic kernel module" /><published>2020-06-21T12:57:45+03:00</published><updated>2020-06-21T12:57:45+03:00</updated><id>http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module</id><content type="html" xml:base="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html">&lt;h1 id=&quot;hi-developer&quot;&gt;Hi, developer&lt;/h1&gt;
 
 &lt;p&gt;This it an article about how to write a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_world&lt;/code&gt; linux module for 4.19 kernel.&lt;/p&gt;
 
-&lt;h1 id=&quot;first-code&quot;&gt;First: code&lt;/h1&gt;
+&lt;h1 id=&quot;environment&quot;&gt;Environment&lt;/h1&gt;
+
+&lt;p&gt;I use Gentoo Linux on Intel Celeron machine:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uname -a
+Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course you need kernel sources! On Gentoo they are at &lt;em&gt;/usr/src/linux&lt;/em&gt;, on other systems you should install them via package manager or via &lt;a href=&quot;https://github.com/torvalds/linux&quot;&gt;git&lt;/a&gt;. Google will help you!&lt;/p&gt;
+
+&lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
 
 &lt;p&gt;You can browse the sources also &lt;a href=&quot;https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
@@ -50,16 +60,6 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;
-
-&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
-
-&lt;p&gt;I use Gentoo Linux on Intel Celeron machine:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uname -a
-Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Of course you need kernel sources! On Gentoo they are at &lt;em&gt;/usr/src/linux&lt;/em&gt;, on other systems you should install them via package manager or via &lt;a href=&quot;https://github.com/torvalds/linux&quot;&gt;git&lt;/a&gt;. Google will help you!&lt;/p&gt;
 
 &lt;h2 id=&quot;writing-c-file&quot;&gt;Writing C file&lt;/h2&gt;
 

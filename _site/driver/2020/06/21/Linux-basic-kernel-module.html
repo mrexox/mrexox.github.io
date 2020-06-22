@@ -49,7 +49,17 @@
 
 <p>This it an article about how to write a basic <code class="language-plaintext highlighter-rouge">hello_world</code> linux module for 4.19 kernel.</p>
 
-<h1 id="first-code">First: code</h1>
+<h1 id="environment">Environment</h1>
+
+<p>I use Gentoo Linux on Intel Celeron machine:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uname -a
+Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
+</code></pre></div></div>
+
+<p>Of course you need kernel sources! On Gentoo they are at <em>/usr/src/linux</em>, on other systems you should install them via package manager or via <a href="https://github.com/torvalds/linux">git</a>. Google will help you!</p>
+
+<h1 id="code">Code</h1>
 
 <p>You can browse the sources also <a href="https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module">here</a></p>
 
@@ -97,16 +107,6 @@
 </code></pre></div></div>
 
 <h1 id="explanation">Explanation</h1>
-
-<h2 id="environment">Environment</h2>
-
-<p>I use Gentoo Linux on Intel Celeron machine:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uname -a
-Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
-</code></pre></div></div>
-
-<p>Of course you need kernel sources! On Gentoo they are at <em>/usr/src/linux</em>, on other systems you should install them via package manager or via <a href="https://github.com/torvalds/linux">git</a>. Google will help you!</p>
 
 <h2 id="writing-c-file">Writing C file</h2>
 

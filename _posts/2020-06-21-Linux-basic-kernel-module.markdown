@@ -9,7 +9,19 @@ categories: driver
 
 This it an article about how to write a basic `hello_world` linux module for 4.19 kernel.
 
-# First: code
+# Environment
+
+I use Gentoo Linux on Intel Celeron machine:
+
+```
+uname -a
+Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
+```
+
+Of course you need kernel sources! On Gentoo they are at */usr/src/linux*, on other systems you should install them via package manager or via [git](https://github.com/torvalds/linux). Google will help you!
+
+
+# Code
 
 You can browse the sources also [here](https://github.com/mrexox/mrexox.github.io/tree/hello-world-linux-module)
 
@@ -60,17 +72,6 @@ obj-m += hello-world.o
 ```
 
 # Explanation
-
-## Environment
-
-I use Gentoo Linux on Intel Celeron machine:
-
-```
-uname -a
-Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) Celeron(R) CPU N2830 @ 2.16GHz GenuineIntel GNU/Linux
-```
-
-Of course you need kernel sources! On Gentoo they are at */usr/src/linux*, on other systems you should install them via package manager or via [git](https://github.com/torvalds/linux). Google will help you!
 
 ## Writing C file
 
