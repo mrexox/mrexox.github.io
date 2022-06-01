@@ -2,22 +2,24 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>👶 Linux basic kernel module | mrexox personal blog</title>
-<meta name="generator" content="Jekyll v4.1.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="👶 Linux basic kernel module" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Hi, developer" />
 <meta property="og:description" content="Hi, developer" />
-<link rel="canonical" href="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" />
-<meta property="og:url" content="http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html" />
+<link rel="canonical" href="https://mrexox.github.io/driver/2020/06/21/Linux-basic-kernel-module.html" />
+<meta property="og:url" content="https://mrexox.github.io/driver/2020/06/21/Linux-basic-kernel-module.html" />
 <meta property="og:site_name" content="mrexox personal blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-21T12:57:45+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="👶 Linux basic kernel module" />
 <script type="application/ld+json">
-{"headline":"👶 Linux basic kernel module","dateModified":"2020-06-21T12:57:45+03:00","datePublished":"2020-06-21T12:57:45+03:00","url":"http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/driver/2020/06/21/Linux-basic-kernel-module.html"},"description":"Hi, developer","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-06-21T12:57:45+03:00","datePublished":"2020-06-21T12:57:45+03:00","description":"Hi, developer","headline":"👶 Linux basic kernel module","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrexox.github.io/driver/2020/06/21/Linux-basic-kernel-module.html"},"url":"https://mrexox.github.io/driver/2020/06/21/Linux-basic-kernel-module.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="mrexox personal blog" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://mrexox.github.io/feed.xml" title="mrexox personal blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">mrexox personal blog</a><nav class="site-nav">
@@ -65,8 +67,8 @@ Linux gentoo 4.19.97-gentoo #5 SMP Tue Mar 31 19:57:47 -00 2020 x86_64 Intel(R) 
 
 <p><strong>hello-world.c</strong></p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;linux/init.h&gt;
-#include &lt;linux/module.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;linux/init.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;linux/module.h&gt;</span><span class="cp">
 </span>
 <span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">"Dual BSD/GPL"</span><span class="p">);</span> <span class="cm">/* MODULE_LICENSE is a required macro */</span>
 

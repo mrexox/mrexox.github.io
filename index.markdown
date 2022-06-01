@@ -6,11 +6,11 @@ layout: home
 title: "Hi, dude 👋"
 ---
 
-Nice to see you on my personal blog page. This blog is supposed to be about technical shit. There are probably not so many blogposts but they are increasing in number from time to time. There is a list of posts grouped by cetegory and also a chronological list of posts downside.
+This is my personal blog. I write about technical stuff here.
 
-Feel free to notify me about inconvenience and mistakes (actually nobody does it, I know, but what if you do?).
+Feel free to notify me about inconvenience and mistakes (actually nobody does it, but there is an option!).
 
-## ⚙️ Writing Drivers
-{% for post in site.categories.driver %}
- <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
+<!-- ## Posts -->
+<!-- {% for post in site.posts %} -->
+<!--  <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li> -->
+<!-- {% endfor %} -->
