@@ -39,8 +39,10 @@ theme_config:
 sass:
   style: expanded
   verbose: true
+  
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
