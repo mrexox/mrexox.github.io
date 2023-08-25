@@ -11,7 +11,8 @@ title: "Valentin Kiselev, backend developer"
 # Valentin Kiselev
 ### Backend developer at Evil Martians
 
-[Github](https://github.com/mrexox),
+[Github](https://github.com/mrexox)
+
 Email: <a href="mailto:mrexox@yahoo.com">mrexox@yahoo.com</a>
 
 <br />
