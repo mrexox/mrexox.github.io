@@ -28,7 +28,7 @@ url: "https://mrexox.github.io" # the base hostname & protocol for your site, e.
 github_username:  mrexox
 
 # Build settings
-theme: no-style-please
+remote_theme: no-style-please
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
