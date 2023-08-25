@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: mrexox personal blog
+title: blog
 email: mrexox@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
   Built with Jekyll and love 🧡
@@ -28,7 +28,17 @@ url: "https://mrexox.github.io" # the base hostname & protocol for your site, e.
 github_username:  mrexox
 
 # Build settings
-theme: minima
+theme: no-style-please
+
+theme_config:
+  appearance: "auto" # can be "light", "dark" or "auto"
+  back_home_text: ".." # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: false # show blog description in home page
+
+sass:
+  style: expanded
+  verbose: true
 plugins:
   - jekyll-feed
 
