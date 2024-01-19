@@ -26,6 +26,9 @@ Email: <a href="mailto:mrexox@yahoo.com">mrexox@yahoo.com</a>
 <br />
 ### Публикации
 
-- [Lefthook: refactoring the Git Hooks automation tool back into shape](https://evilmartians.com/chronicles/lefthook-refactoring-the-git-hooks-automation-tool-back-into-shape)
+- [5 cool (and surprising) ways to configure Lefthook for automation joy](https://evilmartians.com/chronicles/5-cool-and-surprising-ways-to-configure-lefthook-for-automation-joy)
 
 - [From Ruby to Crystal? Writing and distributing a CLI tool](https://evilmartians.com/chronicles/from-ruby-to-crystal-writing-and-distributing-a-cli-tool)
+
+- [Lefthook: refactoring the Git Hooks automation tool back into shape](https://evilmartians.com/chronicles/lefthook-refactoring-the-git-hooks-automation-tool-back-into-shape)
+
