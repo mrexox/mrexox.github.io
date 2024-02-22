@@ -4,6 +4,7 @@
 ### Backend developer at Evil Martians
 
 [Github](https://github.com/mrexox)
+[LinkedIn](https://www.linkedin.com/in/valentin-kiselev-89930b179/)
 
 Email: <a href="mailto:mrexox@yahoo.com">mrexox@yahoo.com</a>
 
