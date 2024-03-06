@@ -27,6 +27,8 @@ I do:
 <br />
 ### Posts
 
+- [How to make complex serverless file processing a piece of cake](https://evilmartians.com/chronicles/how-to-make-serverless-file-processing-a-piece-of-cake)
+
 - [5 cool (and surprising) ways to configure Lefthook for automation joy](https://evilmartians.com/chronicles/5-cool-and-surprising-ways-to-configure-lefthook-for-automation-joy)
 
 - [From Ruby to Crystal? Writing and distributing a CLI tool](https://evilmartians.com/chronicles/from-ruby-to-crystal-writing-and-distributing-a-cli-tool)
