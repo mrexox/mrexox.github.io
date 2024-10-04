@@ -1,7 +1,9 @@
-all: index.html
+pages := index.html
+
+all: $(pages)
 
 clean:
-	rm -f index.html
+	rm -f $(pages)
 
 index.html: index.md templates/home-template.html Makefile
 	pandoc --toc -s --css reset.css --css index.css -i $< -o $@ --template=templates/home-template.html

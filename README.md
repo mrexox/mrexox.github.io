@@ -1,7 +1,6 @@
 # Personal page
 
-This page uses the design from @owickstrom, the monospace-web:
-https://owickstrom.github.io/the-monospace-web/
+This page uses the design from [@owickstorm](https://github.com/owickstrom) the monospace-web: https://owickstrom.github.io/the-monospace-web/
 
 ## Build
 
@@ -9,6 +8,6 @@ https://owickstrom.github.io/the-monospace-web/
 make
 ```
 
-## License
+---
 
 [MIT](LICENSE.md)
