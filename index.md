@@ -34,7 +34,7 @@ title: '@mrexox'
 
 <details>
 <summary>
-[How to write a Go code generator](https://evilmartians.com/chronicles/a-taste-of-go-code-generator-magic-a-quick-guide-to-getting-started)
+[Write yourself a Go code generator](https://evilmartians.com/chronicles/a-taste-of-go-code-generator-magic-a-quick-guide-to-getting-started)
 </summary>
 
 <p>
@@ -44,7 +44,7 @@ A small Go program which generates Go code. Some approaches and notes on making 
 
 <details>
 <summary>
-[How to make complex serverless file processing a piece of cake](https://evilmartians.com/chronicles/how-to-make-serverless-file-processing-a-piece-of-cake)
+[Use serverless for complex file processing](https://evilmartians.com/chronicles/how-to-make-serverless-file-processing-a-piece-of-cake)
 </summary>
 
 <p>
@@ -54,7 +54,7 @@ Sharing the approach for using GCP to process files asynchronously as they get u
 
 <details>
 <summary>
-[5 cool and surprising ways to configure Lefthook for automation joy](https://evilmartians.com/chronicles/5-cool-and-surprising-ways-to-configure-lefthook-for-automation-joy)
+[Five ways to configure Lefthook](https://evilmartians.com/chronicles/5-cool-and-surprising-ways-to-configure-lefthook-for-automation-joy)
 </summary>
 
 <p>
@@ -64,7 +64,7 @@ Things I learned while using lefthook on a daily basis in many different project
 
 <details>
 <summary>
-[From Ruby to Crystal? Writing and distributing a CLI tool](https://evilmartians.com/chronicles/from-ruby-to-crystal-writing-and-distributing-a-cli-tool)
+[Write a CLI tool in Crystal and distribute with Homebrew](https://evilmartians.com/chronicles/from-ruby-to-crystal-writing-and-distributing-a-cli-tool)
 </summary>
 
 <p>
@@ -74,7 +74,7 @@ Some notes about writing a CLI tool in Crystal lang and distributing it via Home
 
 <details>
 <summary>
-[Lefthook: refactoring the Git Hooks automation tool back into shape](https://evilmartians.com/chronicles/lefthook-refactoring-the-git-hooks-automation-tool-back-into-shape)
+[Refactoring lefthook codebase](https://evilmartians.com/chronicles/lefthook-refactoring-the-git-hooks-automation-tool-back-into-shape)
 </summary>
 
 <p>
