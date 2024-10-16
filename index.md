@@ -1,5 +1,5 @@
 ---
-title: @mrexox
+title: '@mrexox'
 ---
 
 <img src="profile.png" class="profile" />
@@ -33,7 +33,16 @@ title: @mrexox
 ### Posts
 
 <details>
+<summary>
+[How to write a Go code generator](https://evilmartians.com/chronicles/a-taste-of-go-code-generator-magic-a-quick-guide-to-getting-started)
+</summary>
 
+<p>
+A small Go program which generates Go code. Some approaches and notes on making a Go code generator.
+</p>
+</details>
+
+<details>
 <summary>
 [How to make complex serverless file processing a piece of cake](https://evilmartians.com/chronicles/how-to-make-serverless-file-processing-a-piece-of-cake)
 </summary>
@@ -41,11 +50,9 @@ title: @mrexox
 <p>
 Sharing the approach for using GCP to process files asynchronously as they get uploaded to your Rails app. An example serverless app + the showcase of Playbook.
 </p>
-
 </details>
 
 <details>
-
 <summary>
 [5 cool and surprising ways to configure Lefthook for automation joy](https://evilmartians.com/chronicles/5-cool-and-surprising-ways-to-configure-lefthook-for-automation-joy)
 </summary>
@@ -53,12 +60,9 @@ Sharing the approach for using GCP to process files asynchronously as they get u
 <p>
 Things I learned while using lefthook on a daily basis in many different projects + a few tips which make the local development a bit faster.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 [From Ruby to Crystal? Writing and distributing a CLI tool](https://evilmartians.com/chronicles/from-ruby-to-crystal-writing-and-distributing-a-cli-tool)
 </summary>
@@ -66,11 +70,9 @@ Things I learned while using lefthook on a daily basis in many different project
 <p>
 Some notes about writing a CLI tool in Crystal lang and distributing it via Homebrew.
 </p>
-
 </details>
 
 <details>
-
 <summary>
 [Lefthook: refactoring the Git Hooks automation tool back into shape](https://evilmartians.com/chronicles/lefthook-refactoring-the-git-hooks-automation-tool-back-into-shape)
 </summary>
@@ -78,7 +80,6 @@ Some notes about writing a CLI tool in Crystal lang and distributing it via Home
 <p>
 A story behind refactoring of lefthook. Making the messy Go codebase more or less maintainable.
 </p>
-
 </details>
 
 <hr />
