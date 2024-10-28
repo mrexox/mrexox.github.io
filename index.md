@@ -2,28 +2,24 @@
 title: '@mrexox'
 ---
 
+<div class="grid flexible">
+
 <img src="profile.png" class="profile" />
 
-## Valentin Kiselev
+<div>
 
-### Backend developer at Evil Martians
+<h2>Valentin Kiselev</h2>
 
-<table>
-    <tr>
-        <td>Github</td>
-        <td>[@mrexox](https://github.com/mrexox)</td>
-    </tr>
-    <tr>
-        <td>LinkedIn</td>
-        <td>[Valentin Kiselev](https://www.linkedin.com/in/valentin-kiselev-89930b179/)</td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td>[mrexox@yahoo.com](mrexox@yahoo.com)</td>
-    </td>
-</table>
+<h3>Backend developer at Evil Martians</h3>
 
-<hr />
+<div class="grid not-flexible">
+Github<br />[@mrexox](https://github.com/mrexox)
+
+LinkedIn<br />[Valentin Kiselev](https://www.linkedin.com/in/valentin-kiselev-89930b179/)
+</div>
+
+</div>
+</div>
 
 ### What I do
 

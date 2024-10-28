@@ -420,6 +420,22 @@ label input {
   margin-bottom: var(--line-height);
 }
 
+.flexible {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 730px) {
+  .flexible {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .not-flexible {
+    margin-bottom: 0;
+  }
+}
+
 .grid > *,
 .grid > input {
   flex: 0 0 calc(round(down, (100% - (1ch * (var(--grid-cells) - 1))) / var(--grid-cells), 1ch));
