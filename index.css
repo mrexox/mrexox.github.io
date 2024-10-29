@@ -1,5 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/monospacetypewriter');
+
 :root {
-  --font-family: monospace;
+  --font-family: 'MonospaceTypewriter', monospace;
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #000;
@@ -422,6 +424,10 @@ label input {
 
 .flexible {
   flex-direction: row;
+}
+
+.not-flexible * + * {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 730px) {
