@@ -13,8 +13,8 @@ title: '@mrexox'
 <h3>Backend developer at Evil Martians</h3>
 
 <div class="grid not-flexible">
-<div>Github<br />[@mrexox](https://github.com/mrexox)</div>
-<div>LinkedIn<br />[Valentin Kiselev](https://www.linkedin.com/in/valentin-kiselev-89930b179/)</div>
+<div><strong>Github</strong><br />[@mrexox](https://github.com/mrexox)</div>
+<div><strong>LinkedIn</strong><br />[Valentin Kiselev](https://www.linkedin.com/in/valentin-kiselev-89930b179/)</div>
 </div>
 
 </div>
