@@ -1,7 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/monospacetypewriter');
+@import url('https://fonts.cdnfonts.com/css/source-serif-pro');
 
 :root {
-  --font-family: 'MonospaceTypewriter', monospace;
+  --font-family: 'Source Serif Pro', monospace;
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #000;
@@ -11,14 +11,14 @@
 
   --font-weight-normal: 500;
   --font-weight-medium: 600;
-  --font-weight-bold: 800;
+  --font-weight-bold: 600;
 
   font-family: var(--font-family);
   font-optical-sizing: auto;
   font-weight: var(--font-weight-normal);
   font-style: normal;
   font-variant-numeric: tabular-nums lining-nums;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,7 +62,7 @@ body {
 
 @media screen and (max-width: 480px) {
   :root {
-    font-size: 14px;
+    font-size: 16px;
   }
   body {
     padding: var(--line-height) 1ch;
