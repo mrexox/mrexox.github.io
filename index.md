@@ -4,7 +4,7 @@ title: '@mrexox'
 
 <div class="grid flexible">
 
-<img src="profile.png" class="profile" />
+<img src="profile.jpg" class="profile" />
 
 <div>
 
