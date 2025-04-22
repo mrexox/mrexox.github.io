@@ -29,6 +29,18 @@ title: '@mrexox'
 
 <details>
 <summary>
+[Making desktop apps with revved-up potential: Rust + Tauri + sidecar](https://evilmartians.com/chronicles/making-desktop-apps-with-revved-up-potential-rust-tauri-sidecar)
+</summary>
+
+<p>
+Notes on making a desktop app with Tauri framework. Solving the problem of running a long-lived process (sidecar) in the background and communicating with it from the frontend.
+
+The code: [github.com/mrexox/tauri-example](https://github.com/mrexox/tauri-example)
+</p>
+</details>
+
+<details>
+<summary>
 [Write yourself a Go code generator](https://evilmartians.com/chronicles/a-taste-of-go-code-generator-magic-a-quick-guide-to-getting-started)
 </summary>
 
