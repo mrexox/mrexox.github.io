@@ -1,13 +1,9 @@
 # Personal page
 
-This page uses the design from [@owickstorm](https://github.com/owickstrom) the monospace-web: https://owickstrom.github.io/the-monospace-web/
+Yep, it's my personal page on the Internet.
 
-## Build
+## Serve locally
 
 ```
 make
 ```
-
----
-
-[MIT](LICENSE.md)
