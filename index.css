@@ -38,6 +38,7 @@ a, button, summary::marker {
 		margin-left: 0;
 		margin-right: 0;
 		border: 0;
+		box-shadow: none;
 	}
 }
 
